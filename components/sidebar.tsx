@@ -11,7 +11,7 @@ import {
   FileWarning,
   Home,
   HospitalIcon,
-  Image,
+  ImageIcon,
   Library,
   LibraryIcon,
   Lightbulb,
@@ -23,14 +23,21 @@ import {
   Sun,
   SwatchBook,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function SideBar() {
   return (
-    <div className="  hidden  bg-white rounded-r-2xl md:block w-64 lg:w-72 p-3 min-h-screen">
-      <div className="flex items-center gap-3  p-3 rounded-lg">
-        <Eye className="text-blue-400  w-10 h-8 border-3 border-gray-950 ring-2 ring-blue-400 rounded-4xl " />
-
-        <div className="leading-tight">
+    <div className="  hidden  bg-white rounded-r-2xl md:block w-64 md:w-80 min-h-screen ">
+      <div className="flex items-center gap-3  p-3 rounded-lg  ">
+        {/*<Eye className="text-blue-400  w-10 h-8 border-3 border-gray-950 ring-2 ring-blue-400 rounded-4xl " />*/}
+        <Image
+          src="/images/logo.png"
+          alt="logo"
+          width={50}
+          height={50}
+          className="object-contain bg-blue-900 p-1 shadow-2xl rounded-full mt-4 "
+        />
+        <div className="leading-tight pt-3.5">
           <p className="font-bold text-lg md:text-xl text-blue-900">
             EyeMed Library
           </p>
@@ -53,7 +60,7 @@ export default function SideBar() {
           <p>Clinical Tools</p>
         </div>{" "}
         <div className="flex items-center gap-2 p-2 rounded-xl transition hover:bg-blue-100 hover:text-blue-500 hover:font-semibold cursor-pointer">
-          <Image />
+          <ImageIcon />
           <p>Images Atlas</p>{" "}
         </div>{" "}
         <div className="flex items-center gap-2 p-2 rounded-xl transition hover:bg-blue-100 hover:text-blue-500 hover:font-semibold cursor-pointer">
@@ -69,26 +76,26 @@ export default function SideBar() {
           <p>History</p>
         </div>
       </div>
-      <div className="flex flex-col justify-center  bg-gray-100 py-5 px-3 space-y-2 text-gray-700 font-medium rounded-2xl">
+      <div className="flex flex-col justify-center  bg-red-50 py-5 ml-3 mr-4 pl-3 space-y-2 text-gray-700 font-medium rounded-2xl ">
         <div className="flex  gap-2 items-center pb-3">
           <Lightbulb className="text-red-600 ml-3" />{" "}
-          <p className="font-bold">Quick Access</p>
+          <p className="font-bold text-red-500">Quick Access</p>
         </div>
-        <div className="flex  gap-3 items-center">
+        <div className="flex  gap-3 items-center text-sm">
           <CalculatorIcon /> <p>Eye Power Calculator</p>
         </div>
-        <div className="flex  gap-3 items-center">
+        <div className="flex  gap-3 items-center text-sm">
           <LucideEye /> <p>IOL Power Calculator</p>
         </div>
-        <div className="flex  gap-3 items-center">
+        <div className="flex  gap-3 items-center text-sm">
           <ChartBar /> <p>Visual Acuity Assessment</p>
         </div>
-        <div className="flex  gap-3 items-center">
+        <div className="flex  gap-3 items-center text-sm">
           {" "}
           <FileWarning />
           <p>IOP Risk Assessment</p>
         </div>
-        <div className="flex  gap-3 items-center">
+        <div className="flex  gap-3 items-center text-sm">
           <ScanEye /> <p>Keratomerty Calculator</p>
         </div>
       </div>
