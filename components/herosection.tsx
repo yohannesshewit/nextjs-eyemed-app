@@ -7,6 +7,7 @@ import {
   Library,
   LibraryIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Herosection() {
   return (
@@ -18,9 +19,12 @@ export default function Herosection() {
           Essential opthalmology <br />
           calculators for daily practice.
         </p>
-        <button className="bg-green-400 text-white w-full py-2 rounded-lg">
+        <Link
+          href="/calculators"
+          className="bg-green-400 text-white w-full py-2 rounded-lg "
+        >
           Explore Calculators
-        </button>{" "}
+        </Link>{" "}
         <p className="text-gray-600">12+ Calculators</p>
       </div>
       <div className="flex flex-col justify-center items-center text-center shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer bg-blue-50 space-y-2 p-4 rounded-2xl">

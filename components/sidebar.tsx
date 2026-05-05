@@ -24,6 +24,7 @@ import {
   SwatchBook,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SideBar() {
   return (
@@ -53,7 +54,7 @@ export default function SideBar() {
         </div>
         <div className="flex items-center gap-2 p-2 rounded-xl transition hover:bg-blue-100 hover:text-blue-500 hover:font-semibold cursor-pointer">
           <Calculator />
-          <p>Calculators</p>
+          <Link href="/calculators">Calculators</Link>
         </div>
         <div className="flex items-center gap-2 p-2 rounded-xl transition hover:bg-blue-100 hover:text-blue-500 hover:font-semibold cursor-pointer">
           <HospitalIcon />
