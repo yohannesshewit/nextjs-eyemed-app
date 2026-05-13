@@ -47,9 +47,12 @@ export default function Herosection() {
           High-quality clinical images <br />
           and diagrams.
         </p>{" "}
-        <button className="bg-violet-400 text-white w-full py-2 rounded-lg">
+        <Link
+          href="/image-atlas"
+          className="bg-violet-400 text-white w-full py-2 rounded-lg"
+        >
           Explore Atlas
-        </button>
+        </Link>
         <p className="text-gray-600 ">1000+ images</p>
       </div>
       <div className="flex flex-col justify-center items-center text-center shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer  bg-orange-50 space-y-2 p-4 rounded-2xl">
@@ -60,9 +63,12 @@ export default function Herosection() {
           <br />
           knowledge library.
         </p>
-        <button className="bg-orange-400 text-white py-2 w-full rounded-lg">
+        <Link
+          href=""
+          className="bg-orange-400 text-white py-2 w-full rounded-lg"
+        >
           Explore Libray
-        </button>
+        </Link>
         <p className="text-gray-600 ">2000+ Topics</p>
       </div>
     </div>
