@@ -1,7 +1,10 @@
+"use client";
+
 import { atlasImages } from "@/data/atlas";
 import { AtlasCategory } from "@/types/atlas";
 import { BookOpen, CloudUpload, Plus, Search } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function ImageAtlasPage() {
   const categoryStyles: Record<AtlasCategory, string> = {
@@ -16,26 +19,56 @@ export default function ImageAtlasPage() {
     "ocular adnexa": "bg-green-100 text-green-600",
   };
 
+  const categories: (AtlasCategory | "all")[] = [
+    "all",
+    "conjunctiva",
+    "cornea",
+    "uvea",
+    "lens",
+    "vitreous",
+    "retina",
+    "optic nerve",
+    "ocular adnexa",
+    "strabismus",
+  ];
+
   const totalImages = atlasImages.length;
 
   const totalCategories = new Set(atlasImages.map((img) => img.category)).size;
+
+  const [search, setSearch] = useState<string>("");
+
+  const [selectedCategory, setSelectedCategory] = useState<
+    AtlasCategory | "all"
+  >("all");
+
+  const filteredImages = atlasImages.filter((image) => {
+    const matchesSearch = image.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory === "all" ? true : image.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-200 to-cyan-50">
       <div className="mx-auto max-w-7xl p-4 md:p-8">
         {/* TOP BAR */}
-        <div className="backdrop-blur-xl bg-white/70 border border-white/40 rounded-3xl shadow-xl p-6">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        <div className="rounded-3xl border border-white/40 bg-white/70 p-6 shadow-xl backdrop-blur-xl">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             {/* TITLE */}
             <div className="flex items-start gap-4">
-              <div className="bg-blue-100 text-blue-600 rounded-2xl p-4">
-                <BookOpen className="w-8 h-8" />
+              <div className="rounded-2xl bg-blue-100 p-4 text-blue-600">
+                <BookOpen className="h-8 w-8" />
               </div>
 
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold">Image Atlas</h1>
+                <h1 className="text-3xl font-bold md:text-4xl">Image Atlas</h1>
 
-                <p className="text-gray-600 mt-2 max-w-2xl text-sm md:text-base">
+                <p className="mt-2 max-w-2xl text-sm text-gray-600 md:text-base">
                   Explore ophthalmic images across anatomy and diseases.
                 </p>
               </div>
@@ -43,13 +76,13 @@ export default function ImageAtlasPage() {
 
             {/* BUTTONS */}
             <div className="flex gap-3">
-              <button className="flex items-center gap-2 rounded-xl border px-5 py-3 text-sm hover:bg-gray-50">
-                <CloudUpload className="w-4 h-4" />
+              <button className="flex items-center gap-2 rounded-xl border px-5 py-3 text-sm transition hover:bg-gray-50">
+                <CloudUpload className="h-4 w-4" />
                 Upload
               </button>
 
-              <button className="flex items-center gap-2 rounded-xl bg-blue-600 text-white px-5 py-3 text-sm hover:bg-blue-700">
-                <Plus className="w-4 h-4" />
+              <button className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm text-white transition hover:bg-blue-700">
+                <Plus className="h-4 w-4" />
                 Favourite
               </button>
             </div>
@@ -57,86 +90,68 @@ export default function ImageAtlasPage() {
         </div>
 
         {/* STATS */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-          <div className="bg-white/70 p-5 rounded-2xl shadow">
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl bg-white/70 p-5 shadow">
             <p className="text-sm text-gray-500">Total Images</p>
+
             <h2 className="text-3xl font-bold">{totalImages}</h2>
           </div>
 
-          <div className="bg-white/70 p-5 rounded-2xl shadow">
+          <div className="rounded-2xl bg-white/70 p-5 shadow">
             <p className="text-sm text-gray-500">Categories</p>
+
             <h2 className="text-3xl font-bold">{totalCategories}</h2>
           </div>
 
-          <div className="bg-white/70 p-5 rounded-2xl shadow">
-            <p className="text-sm text-gray-500">Favourites</p>
-            <h2 className="text-3xl font-bold">48</h2>
+          <div className="rounded-2xl bg-white/70 p-5 shadow">
+            <p className="text-sm text-gray-500">Search Results</p>
+
+            <h2 className="text-3xl font-bold">
+              {search ? filteredImages.length : ""}
+            </h2>
           </div>
         </div>
 
         {/* SEARCH */}
-        <div className="mt-6 bg-white/70 p-5 rounded-3xl shadow">
+        <div className="mt-6 rounded-3xl bg-white/70 p-5 shadow">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
 
             <input
               type="search"
-              placeholder="Search images..."
-              className="w-full pl-12 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-blue-500"
+              value={search}
+              placeholder="Search atlas images..."
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full rounded-2xl border px-3 py-3 pl-12 outline-none transition focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
-        {/* Categories */}
-        <div className="flex flex-wrap gap-3 p-5">
-          {" "}
-          <button className="px-4 py-2 rounded-xl bg-blue-600 text-white text-sm font-medium shadow-md">
-            {" "}
-            All{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Conjunctiva{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Cornea{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Uvea{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Lens{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Vitreous{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Retina{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Optic Nerve{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Ocular Adnexa{" "}
-          </button>{" "}
-          <button className="px-4 py-2 rounded-xl border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600 transition-all duration-200 text-sm">
-            {" "}
-            Strabismus{" "}
-          </button>{" "}
+
+        {/* CATEGORY BUTTONS */}
+        <div className="mt-6 flex flex-wrap gap-3">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`rounded-xl px-4 py-2 text-sm font-medium capitalize transition-all duration-200
+                ${
+                  selectedCategory === category
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600"
+                }
+              `}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         {/* GRID */}
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {atlasImages.map((item) => (
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {filteredImages.map((item) => (
             <div
               key={`${item.category}-${item.id}`}
-              className="bg-white rounded-2xl shadow hover:shadow-xl transition hover:-translate-y-1 overflow-hidden"
+              className="overflow-hidden rounded-2xl bg-white shadow transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               {/* IMAGE */}
               <div className="relative aspect-video overflow-hidden">
@@ -152,13 +167,13 @@ export default function ImageAtlasPage() {
               <div className="p-4">
                 <h2 className="text-lg font-bold">{item.title}</h2>
 
-                <p className="text-sm text-gray-500 line-clamp-2 mt-1">
+                <p className="mt-1 line-clamp-2 text-sm text-gray-500">
                   {item.description}
                 </p>
 
                 {/* CATEGORY BADGE */}
                 <div
-                  className={`inline-block mt-3 px-3 py-1 rounded-lg text-sm font-semibold capitalize ${
+                  className={`mt-3 inline-block rounded-lg px-3 py-1 text-sm font-semibold capitalize ${
                     categoryStyles[item.category]
                   }`}
                 >
@@ -168,6 +183,19 @@ export default function ImageAtlasPage() {
             </div>
           ))}
         </div>
+
+        {/* EMPTY STATE */}
+        {filteredImages.length === 0 && (
+          <div className="mt-10 rounded-3xl bg-white/70 p-10 text-center shadow">
+            <h2 className="text-2xl font-bold text-gray-700">
+              No Images Found
+            </h2>
+
+            <p className="mt-2 text-gray-500">
+              Try another search or category.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
