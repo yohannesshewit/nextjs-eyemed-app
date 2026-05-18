@@ -6,6 +6,7 @@ import {
   Image,
   Library,
   LibraryIcon,
+  Stethoscope,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -16,8 +17,8 @@ export default function Herosection() {
         <Calculator className="text-green-600 bg-green-100 rounded-full  h-16 w-16 p-2  " />{" "}
         <p className="text-green-500 font-bold ">Calculators</p>
         <p className="text-gray-600">
-          Essential opthalmology <br />
-          calculators for daily practice.
+          Essential
+          <br /> opthalmology calculators for daily practice.
         </p>
         <Link
           href="/calculators"
@@ -28,24 +29,26 @@ export default function Herosection() {
         <p className="text-gray-600">12+ Calculators</p>
       </div>
       <div className="flex flex-col justify-center items-center text-center shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer bg-blue-50 space-y-2 p-4 rounded-2xl">
-        <HospitalIcon className="text-blue-600 bg-blue-100 rounded-full  h-16 w-16 p-3  " />{" "}
-        <p className="text-blue-500 font-bold">Clinical Tools</p>
+        <Stethoscope className="text-blue-600 bg-blue-100 rounded-full  h-16 w-16 p-3  " />{" "}
+        <p className="text-blue-500 font-bold">Consult Time</p>
         <p className="text-gray-600 ">
-          Clinical assessment tools and
-          <br />
-          scoring systems.
+          Connect with <br />
+          professionals for personalized advice.
         </p>
-        <button className="bg-blue-400 text-white w-full py-2 rounded-lg">
+        <Link
+          href="/consult"
+          className="bg-blue-400 text-white w-full py-2 rounded-lg"
+        >
           Explore Tools
-        </button>{" "}
+        </Link>{" "}
         <p className="text-gray-600">15+ Tools</p>
       </div>
       <div className="flex flex-col justify-center items-center text-center shadow-xl  hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer bg-violet-50 space-y-2 p-4 rounded-2xl">
         <Image className="text-violet-600 bg-violet-100 rounded-full  h-16 w-16 p-3  " />
         <p className="text-violet-500 font-bold">Image Atlas</p>
         <p className="text-gray-600 ">
-          High-quality clinical images <br />
-          and diagrams.
+          High-quality
+          <br /> clinical and anatomical images.
         </p>{" "}
         <Link
           href="/image-atlas"

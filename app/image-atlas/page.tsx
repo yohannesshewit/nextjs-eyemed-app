@@ -54,7 +54,7 @@ export default function ImageAtlasPage() {
   });
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-200 to-cyan-50">
+    <div className="min-h-screen bg-linear-to-br from-blue-400 via-zinc-900 to-zinc-900">
       <div className="mx-auto max-w-7xl p-4 md:p-8">
         {/* TOP BAR */}
         <div className="rounded-3xl border border-white/40 bg-white/70 p-6 shadow-xl backdrop-blur-xl">

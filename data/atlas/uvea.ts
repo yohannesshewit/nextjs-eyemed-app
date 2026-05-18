@@ -4,7 +4,7 @@ export const UveaImages: AtlasImage[] = [
   {
     id: 1,
     title: "Dilated Pupil",
-    image: "/image-atlas/uvea/dilated pupil.webp",
+    image: "/image-atlas/uvea/dillate pupil.webp",
     description: "Dilated pupil with no abnormalities.",
     category: "uvea",
   },

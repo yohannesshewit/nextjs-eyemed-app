@@ -4,7 +4,7 @@ export const OpticNerveImages: AtlasImage[] = [
   {
     id: 1,
     title: "Glaucomatous optic nerve head cupping",
-    image: "/image-atlas/optic nerve/optic-nerve-head-cupping.webp",
+    image: "/image-atlas/GD.webp",
     description:
       "Enlargement of the optic cup due to loss of retinal ganglion cells, often associated with glaucoma.",
     category: "optic nerve",

@@ -75,7 +75,7 @@ export const CorneaImages: AtlasImage[] = [
   {
     id: 10,
     title: "Arcus Senilis",
-    image: "/image-atlas/cornea/arcus senilis.webp",
+    image: "/image-atlas/cornea/arcus senile.webp",
     description:
       "Deposition of lipid material in the cornea, often seen in older adults.",
     category: "cornea",

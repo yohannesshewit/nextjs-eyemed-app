@@ -36,7 +36,7 @@ export const RetinaImages: AtlasImage[] = [
   {
     id: 5,
     title: "Retinitis Pigmentosa",
-    image: "/image-atlas/retina/retinitis pigmentosa.webp",
+    image: "/image-atlas/retina/retinal pigmentosa.webp",
     description:
       "A group of inherited disorders characterized by progressive peripheral vision loss and night blindness.",
     category: "retina",

@@ -28,7 +28,7 @@ export const VitreousImages: AtlasImage[] = [
   {
     id: 4,
     title: "Asteroid Hyalosis",
-    image: "/image-atlas/vitreous/asteroid_hyalosis.webp",
+    image: "/image-atlas/vitreous/asteroid hyalosis.webp",
     description:
       "Deposition of calcium salts in the vitreous humor, often appearing as white, flaky deposits.",
     category: "vitreous",
