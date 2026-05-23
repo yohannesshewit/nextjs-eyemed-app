@@ -1,79 +1,172 @@
-import {
-  Book,
-  BookOpen,
-  Calculator,
-  HospitalIcon,
-  Image,
-  Library,
-  LibraryIcon,
-  Stethoscope,
-} from "lucide-react";
+import { BookOpen, Calculator, ImageIcon, Stethoscope } from "lucide-react";
 import Link from "next/link";
 
-export default function Herosection() {
+const cards = [
+  {
+    title: "Calculators",
+    description: "Essential ophthalmology calculators for clinical practice.",
+    icon: Calculator,
+    href: "/calculators",
+    button: "Explore",
+    stats: "5+ Tools",
+    color: {
+      icon: "text-emerald-600",
+      iconBg: "bg-emerald-100 dark:bg-emerald-500/10",
+      title: "text-emerald-600",
+      button: "bg-emerald-500 hover:bg-emerald-600",
+    },
+  },
+  {
+    title: "Consult Time",
+    description:
+      "Connect with professionals for personalized medical guidance.",
+    icon: Stethoscope,
+    href: "/consult",
+    button: "Consult",
+    stats: "24/7 Access",
+    color: {
+      icon: "text-sky-600",
+      iconBg: "bg-sky-100 dark:bg-sky-500/10",
+      title: "text-sky-600",
+      button: "bg-sky-500 hover:bg-sky-600",
+    },
+  },
+  {
+    title: "Image Atlas",
+    description:
+      "Browse high-quality anatomical and clinical ophthalmic images.",
+    icon: ImageIcon,
+    href: "/image-atlas",
+    button: "Browse",
+    stats: "50+ Images",
+    color: {
+      icon: "text-violet-600",
+      iconBg: "bg-violet-100 dark:bg-violet-500/10",
+      title: "text-violet-600",
+      button: "bg-violet-500 hover:bg-violet-600",
+    },
+  },
+  {
+    title: "Library",
+    description:
+      "Comprehensive ophthalmology knowledge and learning resources.",
+    icon: BookOpen,
+    href: "/library",
+    button: "Open",
+    stats: "2000+ Topics",
+    color: {
+      icon: "text-orange-600",
+      iconBg: "bg-orange-100 dark:bg-orange-500/10",
+      title: "text-orange-600",
+      button: "bg-orange-500 hover:bg-orange-600",
+    },
+  },
+];
+
+export default function HeroSection() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 ">
-      <div className="flex flex-col justify-center items-center text-center shadow-xl  hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer bg-green-50  space-y-2 p-4 rounded-2xl  ">
-        <Calculator className="text-green-600 bg-green-100 rounded-full  h-16 w-16 p-2  " />{" "}
-        <p className="text-green-500 font-bold ">Calculators</p>
-        <p className="text-gray-600">
-          Essential
-          <br /> opthalmology calculators for daily practice.
-        </p>
-        <Link
-          href="/calculators"
-          className="bg-green-400 text-white w-full py-2 rounded-lg "
-        >
-          Explore Calculators
-        </Link>{" "}
-        <p className="text-gray-600">12+ Calculators</p>
+    <section className="mt-8 px-4 sm:px-6 lg:px-10">
+      {/* mobile horizontal scroll */}
+      <div
+        className="
+          flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3
+          sm:grid sm:grid-cols-2 sm:overflow-visible
+          xl:grid-cols-4
+          scroll-smooth scrollbar-hide
+        "
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        {cards.map((card, index) => {
+          const Icon = card.icon;
+
+          return (
+            <div
+              key={index}
+              className="
+                group relative overflow-hidden
+
+                min-w-[78%]
+                snap-center
+                sm:min-w-0
+
+                rounded-3xl
+                border border-black/10 dark:border-white/10
+
+                bg-white/70 dark:bg-zinc-900/70
+                backdrop-blur-xl
+
+                p-5
+                shadow-lg
+
+                hover:-translate-y-1
+                hover:shadow-xl
+
+                transition-all duration-300
+              "
+            >
+              {/* subtle glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/10 blur-3xl" />
+              </div>
+
+              {/* top */}
+              <div className="relative z-10 flex items-start justify-between">
+                <div
+                  className={`
+                    flex h-14 w-14 items-center justify-center
+                    rounded-2xl
+                    ${card.color.iconBg}
+                  `}
+                >
+                  <Icon className={`h-7 w-7 ${card.color.icon}`} />
+                </div>
+
+                <div className="h-2.5 w-2.5 rounded-full bg-green-400 animate-pulse" />
+              </div>
+
+              {/* content */}
+              <div className="relative z-10 mt-5">
+                <h2
+                  className={`
+                    text-lg font-semibold
+                    ${card.color.title}
+                  `}
+                >
+                  {card.title}
+                </h2>
+
+                <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
+                  {card.description}
+                </p>
+              </div>
+
+              {/* footer */}
+              <div className="relative z-10 mt-6 flex items-center justify-between">
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  {card.stats}
+                </span>
+
+                <Link
+                  href={card.href}
+                  className={`
+                    inline-flex items-center justify-center
+                    rounded-xl px-4 py-2
+
+                    text-sm font-medium text-white
+
+                    transition-all duration-300
+                    hover:scale-105
+
+                    ${card.color.button}
+                  `}
+                >
+                  {card.button}
+                </Link>
+              </div>
+            </div>
+          );
+        })}
       </div>
-      <div className="flex flex-col justify-center items-center text-center shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer bg-blue-50 space-y-2 p-4 rounded-2xl">
-        <Stethoscope className="text-blue-600 bg-blue-100 rounded-full  h-16 w-16 p-3  " />{" "}
-        <p className="text-blue-500 font-bold">Consult Time</p>
-        <p className="text-gray-600 ">
-          Connect with <br />
-          professionals for personalized advice.
-        </p>
-        <Link
-          href="/consult"
-          className="bg-blue-400 text-white w-full py-2 rounded-lg"
-        >
-          Explore Tools
-        </Link>{" "}
-        <p className="text-gray-600">15+ Tools</p>
-      </div>
-      <div className="flex flex-col justify-center items-center text-center shadow-xl  hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer bg-violet-50 space-y-2 p-4 rounded-2xl">
-        <Image className="text-violet-600 bg-violet-100 rounded-full  h-16 w-16 p-3  " />
-        <p className="text-violet-500 font-bold">Image Atlas</p>
-        <p className="text-gray-600 ">
-          High-quality
-          <br /> clinical and anatomical images.
-        </p>{" "}
-        <Link
-          href="/image-atlas"
-          className="bg-violet-400 text-white w-full py-2 rounded-lg"
-        >
-          Explore Atlas
-        </Link>
-        <p className="text-gray-600 ">1000+ images</p>
-      </div>
-      <div className="flex flex-col justify-center items-center text-center shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out  hover:shadow-xl cursor-pointer  bg-orange-50 space-y-2 p-4 rounded-2xl">
-        <BookOpen className="text-orange-600 bg-orange-100 rounded-full  h-16 w-16 p-3  " />
-        <p className="text-orange-500 font-bold">Library</p>
-        <p className="text-gray-600 ">
-          Comprehensive opthtalmology
-          <br />
-          knowledge library.
-        </p>
-        <Link
-          href=""
-          className="bg-orange-400 text-white py-2 w-full rounded-lg"
-        >
-          Explore Libray
-        </Link>
-        <p className="text-gray-600 ">2000+ Topics</p>
-      </div>
-    </div>
+    </section>
   );
 }

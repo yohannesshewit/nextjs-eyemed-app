@@ -54,14 +54,14 @@ export default function IOLCalculatorPage() {
   const canCalculate = AL !== "" && K !== null && A !== "";
 
   return (
-    <div className="w-full h-full  bg-white rounded-2xl shadow-xl   flex flex-col justify-between">
+    <div className="w-full h-full   rounded-2xl shadow-xl   flex flex-col justify-between">
       {/* Header */}
       <div className="flex flex-col">
-        <div className="flex gap-2 bg-blue-50 pl-3 py-2 rounded-t-xl">
-          <div>
+        <div className="flex gap-2 bg-emerald-50 pl-3 py-2 rounded-t-xl">
+          <div className="text-emerald-500">
             <Eye />
           </div>
-          <p className="font-bold  text-sm text-blue-500 ">
+          <p className="font-bold  text-sm text-emerald-500 ">
             IOL Power Calculator
           </p>
         </div>{" "}
@@ -95,7 +95,7 @@ export default function IOLCalculatorPage() {
             className="border p-2 rounded-lg"
           />
           <div>
-            <p className="pl-1 text-sm text-gray-600">A-constant</p>{" "}
+            <p className="pl-1 text-sm text-muted-foreground">A-constant</p>{" "}
             <input
               type="number"
               placeholder="A-Constant"
@@ -116,7 +116,7 @@ export default function IOLCalculatorPage() {
               }}
               onMouseEnter={() => setShowFormulaHint(true)}
               onMouseLeave={() => setShowFormulaHint(false)}
-              className="border p-2 rounded-lg bg-white w-full"
+              className="border p-2 rounded-lg  w-full"
             >
               <option value="SRK">SRK</option>
               <option value="SRK/T">SRK/T</option>
@@ -143,7 +143,7 @@ export default function IOLCalculatorPage() {
           </div>
         </div>
         {/* Auto formula toggle */}
-        <label className="flex items-center text-center gap-2 text-sm text-gray-900 px-4 pt-2">
+        <label className="flex items-center text-center gap-2 text-sm  px-4 pt-2">
           <input
             type="checkbox"
             checked={useAutoFormula}
@@ -154,11 +154,11 @@ export default function IOLCalculatorPage() {
       </div>
 
       {/* Result */}
-      <div className="bg-blue-50 px-1 py-2 rounded-xl text-center flex items-center justify-center  m-2">
+      <div className="bg-emerald-50 px-1 py-2 rounded-xl text-center flex items-center justify-center  m-2">
         <p
           className={` text-center ${
             canCalculate
-              ? "text-blue-700 text-3xl font-bold"
+              ? "text-emerald-700 text-3xl font-bold"
               : "text-gray-500  "
           }`}
         >

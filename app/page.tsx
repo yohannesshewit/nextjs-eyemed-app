@@ -3,8 +3,7 @@ import SideBar from "@/components/sidebar";
 
 export default function Home() {
   return (
-    <div className="flex flex-row gap-2 pt-1">
-      <SideBar />
+    <div className="flex flex-row  pt-1">
       <Main />
     </div>
   );

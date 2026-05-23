@@ -13,7 +13,7 @@ export default function ContactForm() {
 
     const formData = new FormData(event.target as HTMLFormElement);
 
-    formData.append("access_key", "c6e3fe92-f813-4ba2-a038-43edbad8a7a3");
+    formData.append("access_key", "01fa7f72-8836-44e3-9fd3-5f4f23c9a60d");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -34,20 +34,20 @@ export default function ContactForm() {
   };
 
   return (
-    <main className="min-h-screen lg:h-screen overflow-hidden bg-linear-to-br from-slate-100 via-gray-50 to-slate-200">
+    <main className="min-h-screen lg:h-screen overflow-hidden ">
       {/* Layout */}
       <div className="relative z-10 flex h-full">
         {/* LEFT SIDE */}
-        <section className="hidden lg:flex w-[42%] flex-col justify-between overflow-hidden rounded-r-[40px] bg-linear-to-br from-blue-400 via-zinc-900 to-zinc-900 px-12 py-10 text-white shadow-2xl">
+        <section className="hidden lg:flex w-[42%] flex-col justify-between overflow-hidden rounded-r-[40px] bg-linear-to-br from-white via-blue-100 to-blue-400 dark:from-black dark:via-zinc-900 dark:to-blue-400 px-12 py-10  ">
           {/* Top */}
           <div>
             {/* Logo */}
-            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-[30px] border border-white/10 bg-white/10 backdrop-blur-xl">
+            <div className="mb-10 flex h-24 w-24 items-center justify-center rounded-[30px] border dark:border-white/20 border-black/20 dark:bg-white/10 bg-black/5 backdrop-blur-xl">
               <Stethoscope size={40} />
             </div>
 
             {/* Heading */}
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-zinc-400">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-muted-foreground">
               Professional Eye Care
             </p>
 
@@ -57,7 +57,7 @@ export default function ContactForm() {
               Consultation
             </h1>
 
-            <p className="mt-6 max-w-lg text-[16px] leading-8 text-zinc-300">
+            <p className="mt-6 max-w-lg text-[16px] leading-8 text-muted-foreground">
               Get professional consultation for eye conditions, symptoms,
               medication history, and vision concerns through our secure digital
               healthcare platform.
@@ -65,18 +65,18 @@ export default function ContactForm() {
 
             {/* Stats */}
             <div className="mt-10 grid grid-cols-2 gap-5">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+              <div className="rounded-3xl border dark:border-white/10 border-black/20 dark:bg-white/5 bg-black/5 p-6 backdrop-blur-xl">
                 <h3 className="text-3xl font-bold">24/7</h3>
 
-                <p className="mt-2 text-sm leading-6 text-zinc-400">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   Consultation support anytime
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+              <div className="rounded-3xl border dark:border-white/10 border-black/20 dark:bg-white/5 bg-black/5 p-6 backdrop-blur-xl">
                 <h3 className="text-3xl font-bold">100%</h3>
 
-                <p className="mt-2 text-sm leading-6 text-zinc-400">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   Secure patient information
                 </p>
               </div>
@@ -85,44 +85,38 @@ export default function ContactForm() {
 
           {/* Bottom */}
           <div className="space-y-4">
-            <div className="flex items-center gap-4  border  px-5 py-4  rounded-[30px]  border-white/10 bg-white/10 backdrop-blur-xl">
+            <div className="flex items-center gap-4  border  px-5 py-4  rounded-[30px]  border-black/20 dark:border-white/10 bg-black/5  dark:bg-white/10 backdrop-blur-xl">
               <div className="h-3 w-3 rounded-full bg-green-400 shadow-[0_0_20px_rgba(74,222,128,0.8)]" />
 
-              <p className="text-sm text-zinc-200">Professional Consultation</p>
+              <p className="text-sm ">Professional Consultation</p>
             </div>
 
-            <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-md">
+            <div className="flex items-center gap-4 rounded-[30px] border border-black/20 dark:border-white/10 bg-black/5  dark:bg-white/10 px-5 py-4 backdrop-blur-xl">
               <div className="h-3 w-3 rounded-full bg-blue-400 shadow-[0_0_20px_rgba(96,165,250,0.8)]" />
 
-              <p className="text-sm text-zinc-200">Fast & Reliable Response</p>
+              <p className="text-sm ">Fast & Reliable Response</p>
             </div>
 
-            <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur-md">
+            <div className="flex items-center gap-4 rounded-[30px] border  border-black/20 dark:border-white/10 bg-black/5  dark:bg-white/10 px-5 py-4 backdrop-blur-xl">
               <div className="h-3 w-3 rounded-full bg-purple-400 shadow-[0_0_20px_rgba(192,132,252,0.8)]" />
 
-              <p className="text-sm text-zinc-200">
-                Trusted Digital Healthcare
-              </p>
+              <p className="text-sm ">Trusted Digital Healthcare</p>
             </div>
           </div>
         </section>
 
         {/* RIGHT SIDE */}
         <section className="flex w-full items-center justify-center px-4 py-4 lg:w-[58%] lg:px-10 overflow-y-auto">
-          <div className="w-full max-w-2xl  rounded-[36px] border border-white/50 bg-white/80 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-2xl lg:p-8 ">
+          <div className="w-full max-w-2xl  rounded-[36px] border border-white/50  p-6 shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-2xl lg:p-8 ">
             {/* Mobile Header */}
-            <div className=" text-center lg:hidden bg-linear-to-br from-blue-400 via-zinc-900 to-zinc-900 p-6 rounded-[26px]">
+            <div className=" text-center lg:hidden bg-linear-to-tl from-blue-400 dark:via-zinc-900 dark:to-zinc-900 via-blue-100 to:white p-6 rounded-[26px]  mb-10">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-400 text-white backdrop-blur-3xl">
                 <Stethoscope size={28} />
               </div>
 
-              <h1 className="text-3xl font-bold text-zinc-100">
-                Online Consultation
-              </h1>
+              <h1 className="text-3xl font-bold">Online Consultation</h1>
 
-              <p className="mt-2 text-sm text-zinc-300">
-                Submit your consultation details
-              </p>
+              <p className="mt-2 text-sm ">Submit your consultation details</p>
             </div>
 
             {/* Form */}
@@ -131,12 +125,12 @@ export default function ContactForm() {
               <div className="grid grid-cols-1 gap-5 ">
                 {/* Name */}
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-zinc-700">
+                  <label className="mb-2 block text-sm font-semibold ">
                     Full Name
                   </label>
 
-                  <div className="flex items-center rounded-2xl border border-zinc-200 bg-white px-4 shadow-sm transition-all focus-within:border-black focus-within:ring-4 focus-within:ring-black/5">
-                    <User size={18} className="text-zinc-400" />
+                  <div className="flex items-center rounded-2xl border px-4 shadow-sm transition-all focus-within:border-black/20 focus-within:ring-4 dark:focus-within:border-white/20  focus-within:ring-black/5 dark:focus-within:ring-white/5  ">
+                    <User size={18} />
 
                     <input
                       type="text"
@@ -150,12 +144,12 @@ export default function ContactForm() {
 
                 {/* Email */}
                 <div>
-                  <label className="mb-2 block text-sm font-semibold text-zinc-700">
+                  <label className="mb-2 block text-sm font-semibold ">
                     Email Address
                   </label>
 
-                  <div className="flex items-center rounded-2xl border border-zinc-200 bg-white px-4 shadow-sm transition-all focus-within:border-black focus-within:ring-4 focus-within:ring-black/5">
-                    <Mail size={18} className="text-zinc-400" />
+                  <div className="flex items-center rounded-2xl border px-4 shadow-sm transition-all focus-within:border-black/20 focus-within:ring-4 dark:focus-within:border-white/20  focus-within:ring-black/5 dark:focus-within:ring-white/5  ">
+                    <Mail size={18} />
 
                     <input
                       type="email"
@@ -170,12 +164,12 @@ export default function ContactForm() {
 
               {/* Subject */}
               <div>
-                <label className="mb-2 block text-sm font-semibold text-zinc-700">
+                <label className="mb-2 block text-sm font-semibold ">
                   Consultation Topic
                 </label>
 
-                <div className="flex items-center rounded-2xl border border-zinc-200 bg-white px-4 shadow-sm transition-all focus-within:border-black focus-within:ring-4 focus-within:ring-black/5">
-                  <MessageSquare size={18} className="text-zinc-400" />
+                <div className="flex items-center rounded-2xl border px-4 shadow-sm transition-all focus-within:border-black/20 focus-within:ring-4 dark:focus-within:border-white/20  focus-within:ring-black/5 dark:focus-within:ring-white/5  ">
+                  <MessageSquare size={18} />
 
                   <input
                     type="text"
@@ -189,13 +183,13 @@ export default function ContactForm() {
 
               {/* Message */}
               <div>
-                <label className="mb-2 block text-sm font-semibold text-zinc-700">
+                <label className="mb-2 block text-sm font-semibold ">
                   Consultation Details
                 </label>
 
-                <div className="rounded-3xl border border-zinc-200 bg-white px-5 py-5 shadow-sm transition-all focus-within:border-black focus-within:ring-4 focus-within:ring-black/5">
+                <div className="rounded-3xl border  px-5 py-5 shadow-sm transition-all focus-within:border-black/20 focus-within:ring-4 dark:focus-within:border-white/20  focus-within:ring-black/5 dark:focus-within:ring-white/5 ">
                   <div className="flex gap-3">
-                    <MessageSquare size={18} className="mt-1 text-zinc-400" />
+                    <MessageSquare size={18} className="mt-1 " />
 
                     <textarea
                       name="message"
@@ -220,7 +214,7 @@ Write details here...`}
               {/* Button */}
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-linear-to-r from-black via-zinc-900 to-black py-4 text-[15px] font-medium text-white transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl text-white dark:text-black bg-linear-to-r from-black via-zinc-900 to-black py-4 text-[15px] font-medium dark:from-white dark:via-zinc-200 dark:to-white transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl"
               >
                 <Send size={18} />
                 Submit Consultation

@@ -28,7 +28,7 @@ import Link from "next/link";
 
 export default function SideBar() {
   return (
-    <div className="  hidden  bg-white rounded-r-2xl md:block w-64 md:w-80 min-h-screen ">
+    <div className="  hidden  bg-white rounded-r-2xl md:block w-64 md:w-80 min-h-screen dark:bg-linear-to-br from-blue-400 via-zinc-900 to-zinc-900 shadow-2xl">
       <div className="flex items-center gap-3  p-3 rounded-lg  ">
         {/*<Eye className="text-blue-400  w-10 h-8 border-3 border-gray-950 ring-2 ring-blue-400 rounded-4xl " />*/}
         <Image
@@ -36,13 +36,13 @@ export default function SideBar() {
           alt="logo"
           width={50}
           height={50}
-          className="object-contain bg-blue-900 p-1 shadow-2xl rounded-full mt-4 "
+          className="object-contain bg-blue-900 p-1 shadow-2xl rounded-full mt-4 dark:bg-blue-400 "
         />
         <div className="leading-tight pt-3.5">
-          <p className="font-bold text-lg md:text-xl text-blue-900">
+          <p className="font-bold text-lg md:text-xl text-blue-900 dark:text-blue-400">
             EyeMed Library
           </p>
-          <p className="text-gray-500 text-xs md:text-sm">
+          <p className="text-gray-500 text-xs md:text-sm dark:text-white">
             Ophthalmology Resources
           </p>
         </div>

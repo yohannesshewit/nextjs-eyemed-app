@@ -54,10 +54,10 @@ export default function ImageAtlasPage() {
   });
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-400 via-zinc-900 to-zinc-900">
+    <div className="min-h-screen  bg-linear-to-br from-blue-400 via-white to:white dark:bg-linear-to-br dark:from-blue-400 dark:via-zinc-900 dark:to-zinc-900">
       <div className="mx-auto max-w-7xl p-4 md:p-8">
         {/* TOP BAR */}
-        <div className="rounded-3xl border border-white/40 bg-white/70 p-6 shadow-xl backdrop-blur-xl">
+        <div className="rounded-3xl border border-black/40 dark:border-white/40 bg-white/70 dark:bg-black/40 p-6 shadow-xl backdrop-blur-xl">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             {/* TITLE */}
             <div className="flex items-start gap-4">
@@ -66,9 +66,9 @@ export default function ImageAtlasPage() {
               </div>
 
               <div>
-                <h1 className="text-3xl font-bold md:text-4xl">Image Atlas</h1>
+                <h1 className="text-3xl font-bold md:text-4xl ">Image Atlas</h1>
 
-                <p className="mt-2 max-w-2xl text-sm text-gray-600 md:text-base">
+                <p className="mt-2 max-w-2xl text-sm text-muted-foreground md:text-base">
                   Explore ophthalmic images across anatomy and diseases.
                 </p>
               </div>
@@ -76,7 +76,7 @@ export default function ImageAtlasPage() {
 
             {/* BUTTONS */}
             <div className="flex gap-3">
-              <button className="flex items-center gap-2 rounded-xl border px-5 py-3 text-sm transition hover:bg-gray-50">
+              <button className="flex items-center gap-2 rounded-xl border px-5 py-3 text-sm transition hover:bg-black/10 dark:hover:bg-white/20">
                 <CloudUpload className="h-4 w-4" />
                 Upload
               </button>
@@ -90,21 +90,21 @@ export default function ImageAtlasPage() {
         </div>
 
         {/* STATS */}
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl bg-white/70 p-5 shadow">
-            <p className="text-sm text-gray-500">Total Images</p>
+        <div className="mt-6 grid gap-4 grid-cols-3">
+          <div className="rounded-2xl bg-white/70 dark:bg-black/40 p-5 shadow">
+            <p className="text-sm text-muted-foreground">Total Images</p>
 
             <h2 className="text-3xl font-bold">{totalImages}</h2>
           </div>
 
-          <div className="rounded-2xl bg-white/70 p-5 shadow">
-            <p className="text-sm text-gray-500">Categories</p>
+          <div className="rounded-2xl bg-white/70 dark:bg-black/40 p-5 shadow">
+            <p className="text-sm text-muted-foreground">Categories</p>
 
             <h2 className="text-3xl font-bold">{totalCategories}</h2>
           </div>
 
-          <div className="rounded-2xl bg-white/70 p-5 shadow">
-            <p className="text-sm text-gray-500">Search Results</p>
+          <div className="rounded-2xl bg-white/70 dark:bg-black/40 p-5 shadow">
+            <p className="text-sm text-muted-foreground">Search Results</p>
 
             <h2 className="text-3xl font-bold">
               {search ? filteredImages.length : ""}
@@ -113,16 +113,16 @@ export default function ImageAtlasPage() {
         </div>
 
         {/* SEARCH */}
-        <div className="mt-6 rounded-3xl bg-white/70 p-5 shadow">
+        <div className="mt-6 rounded-3xl bg-white/70 dark:bg-black/40 p-5 shadow">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 " />
 
             <input
               type="search"
               value={search}
               placeholder="Search atlas images..."
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-2xl border px-3 py-3 pl-12 outline-none transition focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-2xl border border-black/40 dark:border-white/40 px-3 py-3 pl-12 outline-none transition focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function ImageAtlasPage() {
                 ${
                   selectedCategory === category
                     ? "bg-blue-600 text-white shadow-md"
-                    : "border border-gray-200 bg-white hover:border-blue-500 hover:text-blue-600"
+                    : "border  bg-white dark:bg-black/40 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-300"
                 }
               `}
             >
@@ -147,11 +147,11 @@ export default function ImageAtlasPage() {
         </div>
 
         {/* GRID */}
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3  lg:grid-cols-4">
           {filteredImages.map((item) => (
             <div
               key={`${item.category}-${item.id}`}
-              className="overflow-hidden rounded-2xl bg-white shadow transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className=" overflow-hidden rounded-2xl bg-white/70 dark:bg-black/40 shadow transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               {/* IMAGE */}
               <div className="relative aspect-video overflow-hidden">
@@ -167,7 +167,7 @@ export default function ImageAtlasPage() {
               <div className="p-4">
                 <h2 className="text-lg font-bold">{item.title}</h2>
 
-                <p className="mt-1 line-clamp-2 text-sm text-gray-500">
+                <p className="mt-1  text-sm text-muted-foreground">
                   {item.description}
                 </p>
 

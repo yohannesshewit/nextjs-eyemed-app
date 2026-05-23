@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye } from "lucide-react";
+import { Eye, Glasses } from "lucide-react";
 import { useState, useMemo } from "react";
 
 type RefractionType = "Myopia" | "Hyperopia" | "Emmetropia" | "Astigmatism";
@@ -48,11 +48,11 @@ export default function RefractionCalculator() {
     <div className="w-full h-full   rounded-2xl shadow-xl  flex flex-col justify-between ">
       {/* Header */}
       <div className="flex flex-col">
-        <div className="flex gap-2 bg-green-50 pl-3 py-2  rounded-t-xl">
-          <div>
-            <Eye />
+        <div className="flex gap-2 bg-cyan-50 pl-3 py-2  rounded-t-xl">
+          <div className="text-cyan-500">
+            <Glasses />
           </div>
-          <p className="font-bold  text-sm text-green-500 ">
+          <p className="font-bold  text-sm text-cyan-500 ">
             Refraction Calculator
           </p>
         </div>
@@ -98,39 +98,39 @@ export default function RefractionCalculator() {
       </div>
 
       {/* Classification */}
-      <div className="bg-blue-50 m-2 px-1 py-2 rounded-xl text-center space-y-2">
+      <div className="bg-cyan-50 m-2 px-1 py-2 rounded-xl text-center space-y-2">
         {/* Spherical Equivalent */}
-        <div className="  text-xl  ">
+        <div className="  text-xl text-gray-900 ">
           Spherical Equivalent:{" "}
-          <span className="font-bold text-3xl text-green-600">
+          <span className="font-bold text-3xl text-cyan-600">
             {sphericalEquivalent !== null
               ? sphericalEquivalent.toFixed(2)
               : "—"}
           </span>
         </div>
-        <p className="text-sm text-gray-600">Clinical interpretation</p>
+        <p className="text-sm text-gray-900">Clinical interpretation</p>
 
-        <p className="text-2xl font-bold text-green-600">
+        <p className="text-2xl font-bold text-cyan-600">
           {classification ?? "—"}
         </p>
 
         {/* Clinical hints */}
         {classification === "Myopia" && (
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-900">
             Image focuses in front of retina
           </p>
         )}
 
         {classification === "Hyperopia" && (
-          <p className="text-xs text-gray-500">Image focuses behind retina</p>
+          <p className="text-xs text-gray-900">Image focuses behind retina</p>
         )}
 
         {classification === "Emmetropia" && (
-          <p className="text-xs text-gray-500">Normal refractive state</p>
+          <p className="text-xs text-gray-900">Normal refractive state</p>
         )}
 
         {classification === "Astigmatism" && (
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-900">
             Combined spherical + cylindrical error
           </p>
         )}

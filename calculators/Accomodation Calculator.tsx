@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye } from "lucide-react";
+import { Eye, Ruler } from "lucide-react";
 import { useMemo, useState } from "react";
 
 export default function AccommodationCalculator() {
@@ -44,12 +44,16 @@ export default function AccommodationCalculator() {
   const inputStyle = "border p-2 rounded-lg w-full";
 
   return (
-    <div className="w-full h-full bg-white rounded-2xl shadow-xl flex flex-col justify-between">
+    <div className="w-full h-full  rounded-2xl shadow-xl flex flex-col justify-between">
       {/* Header */}
       <div>
-        <div className="flex gap-1 bg-orange-50 pl-1 py-2 rounded-t-xl">
-          <Eye />
-          <p className="font-bold text-sm text-orange-500">
+        <div className="flex gap-2 bg-slate-50 pl-1 py-2 rounded-t-xl">
+          <div className="text-slate-500">
+            {" "}
+            <Ruler />
+          </div>
+
+          <p className="font-bold text-sm text-slate-500">
             Accommodation Calculator
           </p>
         </div>
@@ -79,11 +83,11 @@ export default function AccommodationCalculator() {
       </div>
 
       {/* Result */}
-      <div className="m-2 px-1 py-2 text-center rounded-xl bg-violet-50 border border-violet-100">
+      <div className="m-2 px-1 py-2 text-center rounded-xl bg-slate-50 border border-slate-100">
         {result ? (
           <>
-            <p className="text-xl">Amplitude of Accommodation:</p>
-            <p className="text-3xl font-bold text-orange-600">
+            <p className="text-xl text-black">Amplitude of Accommodation:</p>
+            <p className="text-3xl font-bold text-slate-600">
               {result.amplitude} D
             </p>
 

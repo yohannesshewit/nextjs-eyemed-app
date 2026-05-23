@@ -1,6 +1,6 @@
 "use client";
 
-import { Eye } from "lucide-react";
+import { Eye, Gauge } from "lucide-react";
 import { useMemo, useState } from "react";
 
 type RiskLevel = "Low Risk" | "Moderate Risk" | "High Risk";
@@ -46,13 +46,13 @@ export default function GlaucomaRiskCalculator() {
   const inputStyle = "border  p-2 rounded-lg ";
 
   return (
-    <div className="w-full h-full bg-white rounded-2xl shadow-xl flex flex-col justify-between">
+    <div className="w-full h-full  rounded-2xl shadow-xl flex flex-col justify-between">
       <div className="flex flex-col gap-2">
-        <div className="flex gap-2 bg-blue-50 pl-3 py-2 rounded-t-xl">
-          <div>
-            <Eye />
+        <div className="flex gap-2 bg-red-50 pl-3 py-2 rounded-t-xl">
+          <div className="text-red-500">
+            <Gauge />
           </div>
-          <p className="font-bold text-sm text-violet-500">
+          <p className="font-bold text-sm text-red-500">
             Glaucoma Risk Calculator
           </p>
         </div>
@@ -102,17 +102,15 @@ export default function GlaucomaRiskCalculator() {
 
         {/* Family History */}
         <div className="flex flex-col gap-2 px-3">
-          <p className="font-medium text-gray-700 ">
-            Family History of Glaucoma
-          </p>
+          <p className="font-medium text-sm ">Family History of Glaucoma</p>
 
           <div className="flex gap-3">
             <button
               onClick={() => setFamilyHistory("no")}
               className={`flex-1 py-2 rounded-xl border transition ${
                 familyHistory === "no"
-                  ? "bg-violet-600 text-white border-violet-600"
-                  : "border-violet-300 text-violet-700"
+                  ? "bg-red-600 text-white border-red-600"
+                  : "border-red-300 text-red-700"
               }`}
             >
               No
@@ -122,8 +120,8 @@ export default function GlaucomaRiskCalculator() {
               onClick={() => setFamilyHistory("yes")}
               className={`flex-1 py-2 rounded-xl border transition ${
                 familyHistory === "yes"
-                  ? "bg-violet-600 text-white border-violet-600"
-                  : "border-violet-300 text-violet-700"
+                  ? "bg-red-600 text-white border-red-600"
+                  : "border-red-300 text-red-700"
               }`}
             >
               Yes
@@ -133,16 +131,16 @@ export default function GlaucomaRiskCalculator() {
       </div>
 
       {/* Result */}
-      <div className="m-2 px-1 py-2 rounded-xl bg-violet-50 border border-violet-100 flex justify-center items-center flex-col">
+      <div className="m-2 px-1 py-2 rounded-xl bg-red-50 border border-red-100 flex justify-center items-center flex-col">
         {result ? (
           <>
-            <p className="text-xl">
+            <p className="text-xl text-black">
               Risk Score:{" "}
-              <span className="font-semibold text-2xl text-violet-700">
+              <span className="font-semibold text-2xl text-red-700">
                 {result.score}%
               </span>
             </p>
-            <p className="text-2xl font-bold text-violet-700">{result.level}</p>
+            <p className="text-2xl font-bold text-red-700">{result.level}</p>
           </>
         ) : (
           <p className="text-gray-500 text-center">
